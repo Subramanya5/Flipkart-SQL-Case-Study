@@ -1,0 +1,73 @@
+#Question:
+#Flipkart Case Study-
+
+# 1. Find products that have never been ordered
+SELECT p.ProductID, p.ProductName
+FROM Products p
+LEFT JOIN OrderDetails od ON p.ProductID = od.ProductID
+WHERE od.OrderID IS NULL;
+
+# 2. Calculate the average price of products in each category
+SELECT Category, AVG(Price) AS AveragePrice
+FROM Products
+GROUP BY Category;
+
+# 3. Identify the product with the highest number of orders for a december month
+SELECT p.ProductID, p.ProductName, SUM(od.Quantity) AS TotalQuantity
+FROM OrderDetails od
+JOIN Products p ON od.ProductID = p.ProductID
+WHERE MONTH(od.OrderDate) = 12 AND YEAR(od.OrderDate) = 2024
+GROUP BY p.ProductID, p.ProductName
+ORDER BY TotalQuantity DESC
+LIMIT 1;
+
+# 4. Find states with total shipping amounts greater than 3500
+SELECT s.State, SUM(od.Subtotal) AS TotalShipping
+FROM Shipping s
+JOIN Orders o ON s.OrderID = o.OrderID
+JOIN OrderDetails od ON o.OrderID = od.OrderID
+GROUP BY s.State
+HAVING TotalShipping < 3500;
+select * from products;
+
+# 5. Show all orders and their details for a product P015 within '2024-11-31' AND '2024-12-08' range
+SELECT od.OrderID, od.OrderDate, p.ProductName, od.Quantity, od.Subtotal
+FROM OrderDetails od
+JOIN Products p ON od.ProductID = p.ProductID
+WHERE od.ProductID = 'P015' AND od.OrderDate BETWEEN '2024-11-31' AND '2024-12-08';
+
+# 6. Find the most frequently ordered product overall
+SELECT p.ProductName, COUNT(od.ProductID) AS OrderCount
+FROM OrderDetails od
+JOIN Products p ON od.ProductID = p.ProductID
+GROUP BY p.ProductName
+ORDER BY OrderCount DESC
+LIMIT 1;
+
+# 7. Calculate November month-over-december month revenue growth for the platform
+SELECT 
+    MONTH(od.OrderDate) AS Month, 
+    YEAR(od.OrderDate) AS Year,
+    SUM(od.Subtotal) AS Revenue,
+    LAG(SUM(od.Subtotal)) OVER (ORDER BY YEAR(od.OrderDate), MONTH(od.OrderDate)) AS PreviousRevenue,
+    ((SUM(od.Subtotal) - LAG(SUM(od.Subtotal)) OVER (ORDER BY YEAR(od.OrderDate), MONTH(od.OrderDate))) / LAG(SUM(od.Subtotal)) OVER (ORDER BY YEAR(od.OrderDate), MONTH(od.OrderDate))) * 500 AS GrowthPercentage
+FROM OrderDetails od
+GROUP BY YEAR(od.OrderDate), MONTH(od.OrderDate);
+
+# 8. Find products whose total revenue is less than 2000 amount
+SELECT p.ProductID, p.ProductName, SUM(od.Subtotal) AS TotalRevenue
+FROM Products p
+JOIN OrderDetails od ON p.ProductID = od.ProductID
+GROUP BY p.ProductID, p.ProductName
+HAVING TotalRevenue < 2000;
+
+# 9. Find the total number of unique orders and the maximum quantity ordered for any product
+SELECT COUNT(DISTINCT od.OrderID) AS TotalOrders, MAX(od.Quantity) AS MaxQuantity
+FROM OrderDetails od;
+
+# 10. Find orders where the total order amount exceeds 2500
+SELECT o.OrderID, SUM(od.Subtotal) AS TotalAmount
+FROM OrderDetails od
+JOIN Orders o ON od.OrderID = o.OrderID
+GROUP BY o.OrderID
+HAVING TotalAmount > 2500;
