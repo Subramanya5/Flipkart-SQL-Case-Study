@@ -1,0 +1,13 @@
+Question:
+Flipkart Case Study-
+
+1. Find products that have never been ordered
+2. Calculate the average price of products in each category
+3. Identify the product with the highest number of orders for a December month
+4. Find states with total shipping amounts greater than 3500
+5. Show all orders and their details for a product P015 within '2024-11-31' AND '2024-12-08' range
+6. Find the most frequently ordered product overall
+7. Calculate November month over December month revenue growth for the platform
+8. Find products whose total revenue is less than 2000 amount
+9. Find the total number of unique orders and the maximum quantity ordered for any product
+10. Find orders where the total order amount exceeds 2500
