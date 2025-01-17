@@ -1,0 +1,21 @@
+ShippingID,OrderID,ShippingDate,State,Status
+S101,O101,02-12-2024,Maharashtra,Delivered
+S102,O102,03-12-2024,Karnataka,Delivered
+S103,O103,04-12-2024,Gujarat,Shipped
+S104,O104,05-12-2024,Rajasthan,Pending
+S105,O105,06-12-2024,Kerala,Delivered
+S106,O106,07-12-2024,Tamil Nadu,Shipped
+S107,O107,08-12-2024,Panjab,Delivered
+S108,O108,09-12-2024,Haryana,Delivered
+S109,O109,10-12-2024,Uttar Pradesh,Pending
+S110,O110,11-12-2024,Madhya Pradesh,Shipped
+S111,O111,12-12-2024,Karnataka,Delivered
+S112,O112,13-12-2024,west bengal,Shipped
+S113,O113,14-12-2024,Maharashtra,Pending
+S114,O114,15-12-2024,Goa,Delivered
+S115,O115,16-12-2024,Telangana,Delivered
+S116,O116,17-12-2024,Panjab,Shipped
+S117,O117,18-12-2024,Uttar Pradesh,Pending
+S118,O118,19-12-2024,Telangana,Delivered
+S119,O119,20-12-2024,Bihar,Shipped
+S120,O120,21-12-2024,west bengal,Delivered
