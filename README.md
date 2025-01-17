@@ -2,7 +2,7 @@
 
 #Overview
 
-This repository contains a SQL case study focused on analyzing Flipkart-related data using SQL queries. The dataset includes tables such as Customers, Products, Orders, OrderDetails, and Shipping. This case study covers a variety of SQL topics, including joins, subqueries, aggregation, and analytical functions.
+This repository contains a SQL case study focused on analyzing Flipkart-related data using SQL queries. The dataset includes tables such as **Customers, Products, Orders, OrderDetails, and Shipping. This case study covers a variety of SQL topics, including joins, subqueries, aggregation, and analytical functions.
 
 #Dataset Description
 
